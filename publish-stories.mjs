@@ -56,25 +56,33 @@ async function build(id) {
   const F = 'Arial,Helvetica,sans-serif';
   const n = pages.length;
   const date = new Date(post.date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).toUpperCase();
-  const bar = i => `<div style="background:#000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:3px solid ${RED}"><amp-img src="${LOGO}" width="104" height="39" layout="fixed" alt="DNA Motociclista"></amp-img><span style="color:#fff;font:700 .85rem ${F}">${i + 1} / ${n}</span></div>`;
-  const chip = t => `<span style="display:inline-block;background:${RED};color:#fff;font:700 .75rem ${F};letter-spacing:.06em;padding:5px 10px;margin-bottom:14px">${t}</span>`;
+  const U = n => `calc(var(--story-page-vh) * ${+(n * 100 / H).toFixed(4)})`;
+  const abs = (css, inner) => `<div style="position:absolute;${css}">${inner}</div>`;
+  const fillImg = (src, alt) => `<amp-img src="${src}" width="720" height="1280" layout="fill" object-fit="cover" alt="${esc(alt)}"></amp-img>`;
+  const logoImg = w => `<div style="width:${U(w)}"><amp-img src="${LOGO}" width="500" height="186" layout="responsive" alt="DNA Motociclista"></amp-img></div>`;
+  const bar = () => abs(`top:0;left:0;right:0;height:${U(97)};padding:${U(30)} ${U(20)} 0;background:#000;border-bottom:${U(3)} solid ${RED};display:flex;align-items:center`, logoImg(104));
+  const chip = t => `<span style="display:inline-block;background:${RED};color:#fff;font:700 ${U(12)} ${F};letter-spacing:.06em;padding:${U(5)} ${U(10)};margin-bottom:${U(14)}">${t}</span>`;
+  const h = (tag, sz, txt, color) => `<${tag} style="font:800 ${U(sz)}/1.14 ${F};margin:0 0 ${U(14)};color:${color}">${esc(txt)}</${tag}>`;
+  const para = (txt, color) => `<p style="font:400 ${U(18)}/1.45 ${F};margin:0;color:${color}">${esc(txt)}</p>`;
+  const layer = (inner, style = '') => `<amp-story-grid-layer template="fill"${style ? ` style="${style}"` : ''}>${inner}</amp-story-grid-layer>`;
+  const wrapLayer = inner => layer(`<div style="position:absolute;top:0;left:0;right:0;bottom:0">${inner}</div>`);
   const markup = pages.map((p, i) => {
     const img = pool[i % pool.length];
     let body;
     if (p.cover) {
-      body = `<amp-story-grid-layer template="fill"><amp-img src="${img}" width="720" height="1280" layout="fill" alt="${esc(title)}"></amp-img></amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="fill" style="background:linear-gradient(180deg,rgba(0,0,0,.15) 12%,rgba(0,0,0,.55) 30%,rgba(0,0,0,.88) 46%,rgba(0,0,0,.97) 64%)"></amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="vertical" style="padding:0;align-content:start">${bar(i)}</amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="vertical" style="align-content:end;padding:0 22px 76px">${chip('NOTÍCIAS')}<h1 style="font:800 2.05rem/1.14 ${F};margin:0 0 14px;color:#fff">${esc(p.t)}</h1><p style="font:400 1.1rem/1.45 ${F};margin:0;color:#e6e6e6">${esc(p.d)}</p></amp-story-grid-layer>`;
+      body = layer(fillImg(img, title)) +
+        layer('', 'background:linear-gradient(180deg,rgba(0,0,0,.15) 12%,rgba(0,0,0,.55) 30%,rgba(0,0,0,.88) 46%,rgba(0,0,0,.97) 64%)') +
+        wrapLayer(bar() + abs(`left:${U(22)};right:${U(22)};bottom:${U(76)}`, chip('NOTÍCIAS') + h('h1', 33, p.t, '#fff') + para(p.d, '#e6e6e6')));
     } else if (p.last) {
-      body = `<amp-story-grid-layer template="fill" style="background:#111"></amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="vertical" style="padding:0;align-content:start">${bar(i)}</amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="vertical" style="align-content:center;padding:0 26px 40px;text-align:center"><div style="margin:0 auto 26px"><amp-img src="${LOGO}" width="220" height="82" layout="fixed" alt="DNA Motociclista"></amp-img></div>${chip('CONTINUE LENDO')}<h2 style="font:800 1.9rem/1.15 ${F};margin:0 0 14px;color:#fff">Leia a notícia completa no site</h2><p style="font:400 1.1rem/1.45 ${F};margin:0;color:#d9d9d9">Todos os detalhes e fotos em dnamotociclista.com.br</p></amp-story-grid-layer>`;
+      body = layer('', 'background:#111') +
+        wrapLayer(abs(`top:0;bottom:${U(70)};left:${U(26)};right:${U(26)};display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center`,
+          `<div style="margin:0 auto ${U(30)};width:${U(220)}">${logoImg(220)}</div>` + chip('CONTINUE LENDO') + h('h2', 30, 'Leia a notícia completa no site', '#fff') + para('Todos os detalhes e fotos em dnamotociclista.com.br', '#d9d9d9')));
     } else {
-      body = `<amp-story-grid-layer template="fill" style="background:#fff"></amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="vertical" style="padding:0;align-content:start">${bar(i)}<div style="position:relative;height:310px;overflow:hidden"><amp-img src="${img}" width="720" height="1280" layout="fill" alt="${esc(title)}"></amp-img></div>` +
-        `<div style="padding:22px 22px 0">${chip('NOTÍCIAS')}<h2 style="font:800 1.65rem/1.18 ${F};margin:0 0 12px;color:#111">${esc(p.t)}</h2><p style="font:400 1.1rem/1.5 ${F};margin:0;color:#333">${esc(p.d)}</p></div></amp-story-grid-layer>` +
-        `<amp-story-grid-layer template="vertical" style="align-content:end;padding:0 22px 36px"><div style="border-top:3px solid ${RED};padding-top:10px;color:#777;font:700 .75rem ${F};letter-spacing:.06em">DNAMOTOCICLISTA.COM.BR</div></amp-story-grid-layer>`;
+      body = layer('', 'background:#fff') +
+        wrapLayer(bar() +
+          abs(`top:${U(97)};left:0;right:0;height:${U(290)};overflow:hidden`, fillImg(img, title)) +
+          abs(`top:${U(407)};left:${U(22)};right:${U(22)}`, chip('NOTÍCIAS') + h('h2', 26.4, p.t, '#111') + para(p.d, '#333')) +
+          abs(`left:${U(22)};right:${U(22)};bottom:${U(36)};border-top:${U(3)} solid ${RED};padding-top:${U(10)};color:#777;font:700 ${U(12)} ${F};letter-spacing:.06em`, 'DNAMOTOCICLISTA.COM.BR'));
     }
     return `<amp-story-page id="p${i}">${body}${p.last ? `<amp-story-page-outlink layout="nodisplay" cta-text="Ler notícia"><a href="${post.link}">Ler notícia</a></amp-story-page-outlink>` : ''}</amp-story-page>`;
   }).join('');
@@ -88,7 +96,7 @@ async function build(id) {
   const tx = (text, x, y, wd, size, color, bold, align = 'left') => ({ id: uid(), type: 'text', x, y, width: wd, height: Math.round(lines(text, size, wd) * size * 1.3) + 4, rotationAngle: 0, fontSize: size, lineHeight: 1.25, textAlign: align,
     font: { family: 'Arial', service: 'system', fallbacks: ['Helvetica Neue', 'Helvetica', 'sans-serif'] }, padding: { vertical: 0, horizontal: 0, locked: true }, backgroundColor: { color: { r: 0, g: 0, b: 0, a: 0 } },
     content: `<span style="color:${color};${bold ? 'font-weight:800' : ''}">${esc(text)}</span>`, marginOffset: 0 });
-  const header = i => [rect(0, 0, W, 64, [0, 0, 0]), rect(0, 64, W, 3, [224, 0, 0]), logo(20, 12, 104), tx(`${i + 1} / ${n}`, W - 80, 24, 60, 14, '#ffffff', true, 'right')];
+  const header = i => [rect(0, 0, W, 94, [0, 0, 0]), rect(0, 94, W, 3, [224, 0, 0]), logo(20, 42, 104)];
   const story_data = { version: 50, pages: pages.map((p, i) => {
     let els;
     if (p.cover) {
@@ -97,11 +105,11 @@ async function build(id) {
       els = [cropImg(pool[0], 0, H), grad(90, H - 90), ...header(i), rect(22, chipY, 96, 24, [224, 0, 0]), tx('NOTÍCIAS', 32, chipY + 6, 80, 12, '#ffffff', true),
         tx(p.t, 22, tY, wd, ts, '#ffffff', true), tx(p.d, 22, dY, wd, ds, '#e6e6e6', false)];
     } else if (p.last) {
-      els = [rect(0, 0, W, H, [17, 17, 17]), ...header(i), logo(96, 190, 220), rect(140, 330, 132, 24, [224, 0, 0]), tx('CONTINUE LENDO', 148, 336, 120, 12, '#ffffff', true, 'center'),
+      els = [rect(0, 0, W, H, [17, 17, 17]), logo(96, 190, 220), rect(140, 330, 132, 24, [224, 0, 0]), tx('CONTINUE LENDO', 148, 336, 120, 12, '#ffffff', true, 'center'),
         tx('Leia a notícia completa no site', 26, 372, W - 52, 30, '#ffffff', true, 'center'), tx('Todos os detalhes e fotos em dnamotociclista.com.br', 26, 450, W - 52, 18, '#d9d9d9', false, 'center')];
     } else {
-      const ts = 26, ds = 18, wd = W - 44, chipY = 67 + 310 + 20, tY = chipY + 24 + 14, tH = lines(p.t, ts, wd) * ts * 1.2 + 4, dY = tY + tH + 12;
-      els = [rect(0, 0, W, H, [255, 255, 255]), cropImg(pool[i % pool.length], 67, 310), ...header(i), rect(22, chipY, 96, 24, [224, 0, 0]), tx('NOTÍCIAS', 32, chipY + 6, 80, 12, '#ffffff', true),
+      const ts = 26, ds = 18, wd = W - 44, chipY = 97 + 290 + 20, tY = chipY + 24 + 14, tH = lines(p.t, ts, wd) * ts * 1.2 + 4, dY = tY + tH + 12;
+      els = [rect(0, 0, W, H, [255, 255, 255]), cropImg(pool[i % pool.length], 97, 290), ...header(i), rect(22, chipY, 96, 24, [224, 0, 0]), tx('NOTÍCIAS', 32, chipY + 6, 80, 12, '#ffffff', true),
         tx(p.t, 22, tY, wd, ts, '#111111', true), tx(p.d, 22, dY, wd, ds, '#333333', false), rect(22, H - 36 - 30, W - 44, 3, [224, 0, 0]), tx('DNAMOTOCICLISTA.COM.BR', 22, H - 36 - 18, wd, 12, '#777777', true)];
     }
     return { id: uid(), type: 'page', backgroundColor: { color: { r: 255, g: 255, b: 255 } }, elements: els };
