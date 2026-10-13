@@ -52,6 +52,7 @@ async function build(id) {
 
   const icon = (await (await fetch(`${SITE}/wp-json/`)).json()).site_icon_url;
   const LOGO = SITE + '/wp-content/uploads/2026/09/dna-logo.png';
+  const LOGO_ROUND = SITE + '/wp-content/uploads/2026/10/dna-logo-redonda.png';
   const RED = '#E00000';
   const F = 'Arial,Helvetica,sans-serif';
   const n = pages.length;
@@ -76,7 +77,7 @@ async function build(id) {
     } else if (p.last) {
       body = layer('', 'background:#111') +
         wrapLayer(abs(`top:0;bottom:${U(70)};left:${U(26)};right:${U(26)};display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center`,
-          `<div style="margin:0 auto ${U(30)};width:${U(220)}">${logoImg(220)}</div>` + chip('CONTINUE LENDO') + h('h2', 30, 'Leia a notícia completa no site', '#fff') + para('Todos os detalhes e fotos em dnamotociclista.com.br', '#d9d9d9')));
+          `<div style="margin:0 auto ${U(30)};width:${U(170)}"><amp-img src="${LOGO_ROUND}" width="552" height="552" layout="responsive" alt="DNA Motociclista"></amp-img></div>` + chip('CONTINUE LENDO') + h('h2', 30, 'Leia a notícia completa no site', '#fff') + para('Todos os detalhes e fotos em dnamotociclista.com.br', '#d9d9d9')));
     } else {
       body = layer('', 'background:#fff') +
         wrapLayer(bar() +
@@ -105,8 +106,8 @@ async function build(id) {
       els = [cropImg(pool[0], 0, H), grad(90, H - 90), ...header(i), rect(22, chipY, 96, 24, [224, 0, 0]), tx('NOTÍCIAS', 32, chipY + 6, 80, 12, '#ffffff', true),
         tx(p.t, 22, tY, wd, ts, '#ffffff', true), tx(p.d, 22, dY, wd, ds, '#e6e6e6', false)];
     } else if (p.last) {
-      els = [rect(0, 0, W, H, [17, 17, 17]), logo(96, 190, 220), rect(140, 330, 132, 24, [224, 0, 0]), tx('CONTINUE LENDO', 148, 336, 120, 12, '#ffffff', true, 'center'),
-        tx('Leia a notícia completa no site', 26, 372, W - 52, 30, '#ffffff', true, 'center'), tx('Todos os detalhes e fotos em dnamotociclista.com.br', 26, 450, W - 52, 18, '#d9d9d9', false, 'center')];
+      els = [rect(0, 0, W, H, [17, 17, 17]), { id: uid(), type: 'image', x: 121, y: 140, width: 170, height: 170, rotationAngle: 0, scale: 100, focalX: 50, focalY: 50, resource: { type: 'image', mimeType: 'image/png', src: LOGO_ROUND, width: 552, height: 552, alt: 'DNA Motociclista', id: 0, sizes: {} } }, rect(140, 340, 132, 24, [224, 0, 0]), tx('CONTINUE LENDO', 148, 346, 120, 12, '#ffffff', true, 'center'),
+        tx('Leia a notícia completa no site', 26, 382, W - 52, 30, '#ffffff', true, 'center'), tx('Todos os detalhes e fotos em dnamotociclista.com.br', 26, 460, W - 52, 18, '#d9d9d9', false, 'center')];
     } else {
       const ts = 26, ds = 18, wd = W - 44, chipY = 97 + 290 + 20, tY = chipY + 24 + 14, tH = lines(p.t, ts, wd) * ts * 1.2 + 4, dY = tY + tH + 12;
       els = [rect(0, 0, W, H, [255, 255, 255]), cropImg(pool[i % pool.length], 97, 290), ...header(i), rect(22, chipY, 96, 24, [224, 0, 0]), tx('NOTÍCIAS', 32, chipY + 6, 80, 12, '#ffffff', true),
