@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Hora de trocar a vela da moto?",
+  "d": "Falhas, partida difícil e consumo alto indicam que ela pode estar gasta."
+ },
+ "paginas": [
+  {
+   "t": "Sinais de desgaste",
+   "d": "Dificuldade para pegar a frio, motor falhando e marcha lenta irregular."
+  },
+  {
+   "t": "Ferramentas certas",
+   "d": "Chave de vela do tamanho adequado e, se possível, chave de torque."
+  },
+  {
+   "t": "Motor frio",
+   "d": "Deixe a moto esfriar antes de remover o cachimbo e a vela velha."
+  },
+  {
+   "t": "Siga o manual",
+   "d": "Cada moto pede um tipo de vela e um prazo, que o manual informa."
+  }
+ ]
+}

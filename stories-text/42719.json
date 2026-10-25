@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Capacete de moto: o que olhar antes de comprar",
+  "d": "Escolha um com selo do Inmetro, que caiba bem na sua cabeça e atenda à sua rotina."
+ },
+ "paginas": [
+  {
+   "t": "Sem capacete é gravíssimo",
+   "d": "A infração rende multa, 7 pontos na CNH e retenção do veículo."
+  },
+  {
+   "t": "Certificação é obrigatória",
+   "d": "O capacete precisa seguir o Contran e ter o selo do Inmetro."
+  },
+  {
+   "t": "Viseira regularizada",
+   "d": "Ela também deve atender às regras para o equipamento estar em dia."
+  },
+  {
+   "t": "Escolha por uso",
+   "d": "Cidade, estrada, chuva e trabalho pedem modelos diferentes."
+  }
+ ]
+}

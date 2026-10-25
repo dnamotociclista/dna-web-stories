@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Nome sujo e consórcio de moto",
+  "d": "A negativação pode barrar a entrada no grupo ou a liberação do crédito, conforme a administradora."
+ },
+ "paginas": [
+  {
+   "t": "Nova análise na retirada",
+   "d": "Quando o crédito está para sair, o cadastro é consultado outra vez."
+  },
+  {
+   "t": "Garantias extras",
+   "d": "Há administradoras que pedem algo a mais ou recusam o cliente."
+  },
+  {
+   "t": "Desconfie de promessas",
+   "d": "Consórcio sem nenhuma consulta de crédito não é garantido por ninguém."
+  },
+  {
+   "t": "Leia o contrato",
+   "d": "Entenda taxas e condições antes de assinar."
+  }
+ ]
+}

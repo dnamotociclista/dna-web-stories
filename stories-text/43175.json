@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Como lavar a moto sem estragar nada",
+  "d": "Pouca pressão, produto neutro e proteção das partes sensíveis evitam dor de cabeça."
+ },
+ "paginas": [
+  {
+   "t": "Motor frio, à sombra",
+   "d": "Lavar com a moto quente deixa manchas e pode danificar peças."
+  },
+  {
+   "t": "Proteja escape e entrada de ar",
+   "d": "Tampões ou panos impedem que a água entre onde não deve."
+  },
+  {
+   "t": "De cima para baixo",
+   "d": "Molhe com pouca pressão, passe shampoo neutro e use escova macia nas rodas."
+  },
+  {
+   "t": "Aproveite para inspecionar",
+   "d": "Moto limpa revela vazamentos, trincas e desgastes."
+  }
+ ]
+}

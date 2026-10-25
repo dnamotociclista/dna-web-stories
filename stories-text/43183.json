@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Moto elétrica: o que muda na manutenção",
+  "d": "Há menos peças que desgastam, mas a revisão continua sendo necessária."
+ },
+ "paginas": [
+  {
+   "t": "O que sai da lista",
+   "d": "Troca de óleo, velas e filtro de ar não existem na elétrica."
+  },
+  {
+   "t": "Freios e pneus ficam",
+   "d": "Pastilhas, disco e pressão dos pneus pedem a mesma atenção de sempre."
+  },
+  {
+   "t": "Bateria pede cuidado",
+   "d": "Siga o manual para carga, uso na chuva e armazenamento."
+  },
+  {
+   "t": "Manual manda",
+   "d": "O fabricante define os intervalos e os procedimentos de revisão."
+  }
+ ]
+}

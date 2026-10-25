@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Luvas de moto: escolha antes de cair",
+  "d": "Numa queda, a mão vai ao chão primeiro, e uma boa luva diminui os machucados."
+ },
+ "paginas": [
+  {
+   "t": "Couro",
+   "d": "Resiste bem à abrasão e protege mais, mas leva tempo para amaciar."
+  },
+  {
+   "t": "Tecido",
+   "d": "Mais leve e ventilada, com reforços nas áreas críticas, boa para a cidade."
+  },
+  {
+   "t": "Impermeável e de inverno",
+   "d": "Têm membrana para chuva ou forro para o frio."
+  },
+  {
+   "t": "Cor chamativa",
+   "d": "Ajuda a ser visto pelos outros motoristas."
+  }
+ ]
+}

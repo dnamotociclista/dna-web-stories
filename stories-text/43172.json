@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Filtro de ar da moto: limpar ou trocar?",
+  "d": "O tipo do filtro define o que fazer, e o manual indica o intervalo."
+ },
+ "paginas": [
+  {
+   "t": "Papel não se lava",
+   "d": "Em geral, é trocado no intervalo do manual, e antes em lugar empoeirado."
+  },
+  {
+   "t": "Esponja pode ser lavada",
+   "d": "Depois de limpa, ela recebe óleo próprio antes de voltar para a caixa."
+  },
+  {
+   "t": "Sinais de filtro sujo",
+   "d": "Moto sem força, consumo alto, fumaça escura e marcha lenta irregular."
+  },
+  {
+   "t": "Tela pede kit específico",
+   "d": "O filtro de performance usa produtos de limpeza e óleo próprios."
+  }
+ ]
+}

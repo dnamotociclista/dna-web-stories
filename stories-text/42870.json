@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Seguro de moto: critérios para escolher bem",
+  "d": "O ideal cobre o risco real, tem franquia viável e paga a indenização no prazo."
+ },
+ "paginas": [
+  {
+   "t": "Veja o que está coberto",
+   "d": "Roubo, colisão, incêndio, danos a terceiros, assistência 24 horas e acidentes pessoais."
+  },
+  {
+   "t": "Franquia viável",
+   "d": "Descubra o valor dela e em que situações ela é cobrada."
+  },
+  {
+   "t": "Como a indenização é calculada",
+   "d": "Pergunte se a base é a tabela FIPE e se há pagamento integral em perda total."
+  },
+  {
+   "t": "Regras da apólice",
+   "d": "Algumas exigem rastreador, limitam a idade da moto ou restringem entregas e competição."
+  }
+ ]
+}

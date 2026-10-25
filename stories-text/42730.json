@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Rastreador de moto: tipos e como escolher",
+  "d": "Descubra o que cada modelo faz antes de pagar por um recurso que você não vai usar."
+ },
+ "paginas": [
+  {
+   "t": "GPS com chip",
+   "d": "Modelo mais difundido: o satélite localiza a moto, e a rede móvel leva a posição até você."
+  },
+  {
+   "t": "Satelital para áreas remotas",
+   "d": "Funciona sem sinal de operadora, mas costuma custar mais."
+  },
+  {
+   "t": "Etiqueta Bluetooth",
+   "d": "Depende de celulares próximos para informar onde está."
+  },
+  {
+   "t": "Veja se a seguradora aceita",
+   "d": "O aparelho certo pode render desconto na apólice."
+  }
+ ]
+}

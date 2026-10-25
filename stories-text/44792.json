@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "CG 160 2027 ganha etanol na Start e ESS na Titan",
+  "d": "Tabela sugerida começa em R$ 17.778 e fecha em R$ 21.098; desembarca nas lojas em novembro."
+ },
+ "paginas": [
+  {
+   "t": "Start flex com FlexOne",
+   "d": "A versão de entrada aceita gasolina e etanol, e traz saída USB-C."
+  },
+  {
+   "t": "Titan com alerta de freada",
+   "d": "O ESS avisa quem vem atrás quando o piloto freia com força."
+  },
+  {
+   "t": "Cores de cada versão",
+   "d": "Start: vermelho, prata e preto. Cargo: branco. Fan e Titan têm três opções cada."
+  },
+  {
+   "t": "Valores de São Paulo",
+   "d": "Os preços não incluem frete nem seguro, então o total muda por região."
+  }
+ ]
+}

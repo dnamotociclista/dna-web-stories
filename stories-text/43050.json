@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Como achar o tamanho certo de capacete",
+  "d": "O ideal é um capacete que segure bem e não machuque."
+ },
+ "paginas": [
+  {
+   "t": "Meça a cabeça",
+   "d": "Use fita flexível cerca de 2 cm acima das sobrancelhas e passe pela parte mais larga da nuca."
+  },
+  {
+   "t": "Meça mais de uma vez",
+   "d": "Anote em centímetros e fique com o maior valor encontrado."
+  },
+  {
+   "t": "Tabela é só guia",
+   "d": "De 57 a 58 cm costuma ser M, mas cada marca tem a sua medida."
+  },
+  {
+   "t": "Folgado perde proteção",
+   "d": "Apertado demais causa dor e cansaço. Teste antes de comprar."
+  }
+ ]
+}

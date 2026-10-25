@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Acompanhar a moto pelo celular, na prática",
+  "d": "O aplicativo mostra a posição, avisa quando ela se mexe e permite criar uma área de segurança."
+ },
+ "paginas": [
+  {
+   "t": "GPS e rede de celular",
+   "d": "O aparelho capta a posição por satélite e envia os dados a um servidor."
+  },
+  {
+   "t": "Tempo real tem intervalo",
+   "d": "A atualização depende do aparelho e do plano contratado."
+  },
+  {
+   "t": "Cerca virtual",
+   "d": "Você define uma região e recebe alerta se a moto sair dela."
+  },
+  {
+   "t": "Se for roubada",
+   "d": "Tenha em mãos a localização, mas acione a polícia em vez de ir sozinho."
+  }
+ ]
+}

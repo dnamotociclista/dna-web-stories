@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Câmera de ação na moto: onde fixar",
+  "d": "O local de instalação importa tanto quanto o aparelho, principalmente pela segurança."
+ },
+ "paginas": [
+  {
+   "t": "No capacete?",
+   "d": "A lei não proíbe, mas furos e colas podem reduzir a proteção do casco."
+  },
+  {
+   "t": "Cuidado com o topo",
+   "d": "Peso e saliência no alto aumentam o risco de torção do pescoço numa queda."
+  },
+  {
+   "t": "Prefira a lateral",
+   "d": "Suportes adesivos adequados são a opção mais segura, segundo o guia."
+  },
+  {
+   "t": "Na dúvida, pergunte",
+   "d": "Consulte o fabricante do capacete e a orientação do Detran e do Contran."
+  }
+ ]
+}

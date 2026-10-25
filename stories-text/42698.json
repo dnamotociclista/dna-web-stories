@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Presentes para quem ama moto, por faixa de preço",
+  "d": "Ideias de até R$ 50 a mais de R$ 400 para Natal, Dia dos Pais ou aniversário."
+ },
+ "paginas": [
+  {
+   "t": "Até R$ 50",
+   "d": "Chaveiro, balaclava fina e kit básico de limpeza agradam sem pesar no bolso."
+  },
+  {
+   "t": "De R$ 50 a R$ 150",
+   "d": "Capa de chuva, luvas simples e suporte de celular são úteis no dia a dia."
+  },
+  {
+   "t": "De R$ 150 a R$ 400",
+   "d": "Trava de disco, segunda pele e bolsa de tanque fazem diferença."
+  },
+  {
+   "t": "Acima de R$ 400",
+   "d": "Capacete certificado, botas, jaqueta, intercomunicador ou curso de pilotagem."
+  }
+ ]
+}

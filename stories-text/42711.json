@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Óleo da moto: nível e hora da troca",
+  "d": "Ele lubrifica, reduz o atrito e ajuda a controlar o calor do motor."
+ },
+ "paginas": [
+  {
+   "t": "Moto no plano",
+   "d": "Alguns modelos pedem posição vertical, outros levemente inclinada. O manual diz qual."
+  },
+  {
+   "t": "Espere o óleo descer",
+   "d": "Aguarde alguns minutos para o líquido voltar ao cárter antes de olhar a vareta ou o visor."
+  },
+  {
+   "t": "Troque no prazo",
+   "d": "Viscosidade, especificação e intervalo mudam por modelo."
+  },
+  {
+   "t": "Nível baixo é risco",
+   "d": "Rodar com pouco óleo acelera o desgaste e pode quebrar o motor."
+  }
+ ]
+}

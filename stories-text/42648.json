@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "O que faz o seguro de moto custar mais ou menos",
+  "d": "Não existe valor único: depende da moto, do condutor, do local e das coberturas."
+ },
+ "paginas": [
+  {
+   "t": "Valor na FIPE",
+   "d": "Motos de maior preço na tabela costumam ter prêmio mais alto."
+  },
+  {
+   "t": "Modelos roubados custam mais",
+   "d": "O risco de roubo pesa na conta, independentemente do preço."
+  },
+  {
+   "t": "Esportivas e alta cilindrada",
+   "d": "Costumam ter apólices mais altas do que as de baixa cilindrada."
+  },
+  {
+   "t": "Compare cotações iguais",
+   "d": "Use as mesmas coberturas e franquias para a comparação ser justa."
+  }
+ ]
+}

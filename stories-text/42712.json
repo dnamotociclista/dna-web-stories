@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Freios da moto: como inspecionar em casa",
+  "d": "Pastilhas, disco, fluido e cabos merecem olhada frequente."
+ },
+ "paginas": [
+  {
+   "t": "Alavanca mole é sinal",
+   "d": "Se ela vai ao fundo, algo está errado, como ar ou vazamento no sistema."
+  },
+  {
+   "t": "Barulho metálico",
+   "d": "Pode indicar que a pastilha acabou e o ferro está raspando o disco."
+  },
+  {
+   "t": "Vibração ao frear",
+   "d": "Costuma apontar disco empenado."
+  },
+  {
+   "t": "Na dúvida, oficina",
+   "d": "Os limites de desgaste variam por modelo, e o manual é a referência."
+  }
+ ]
+}

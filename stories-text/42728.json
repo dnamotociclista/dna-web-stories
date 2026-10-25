@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Rastreador de moto compensa? Veja o desconto no seguro",
+  "d": "Ele reduz o risco de perder a moto, mas o abatimento depende das regras da seguradora."
+ },
+ "paginas": [
+  {
+   "t": "Nem sempre é obrigatório",
+   "d": "Em modelos muito visados, algumas seguradoras exigem o aparelho para cobrir roubo."
+  },
+  {
+   "t": "Desconto não é automático",
+   "d": "Só vale se o equipamento e o serviço forem aceitos por quem emite a apólice."
+  },
+  {
+   "t": "Leia as condições gerais",
+   "d": "É lá que ficam as exigências e os percentuais de abatimento."
+  },
+  {
+   "t": "Compare o custo total",
+   "d": "Some a mensalidade do serviço e veja se o desconto cobre o gasto."
+  }
+ ]
+}

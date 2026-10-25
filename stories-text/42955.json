@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Quanto você recebe ao cancelar o consórcio",
+  "d": "O reembolso não sai na hora e passa por descontos previstos no contrato."
+ },
+ "paginas": [
+  {
+   "t": "Pagamento no fim do grupo",
+   "d": "O dinheiro costuma voltar só quando o grupo se encerra."
+  },
+  {
+   "t": "O que é abatido",
+   "d": "Descontam-se a taxa da administradora, o fundo de reserva e uma eventual penalidade."
+  },
+  {
+   "t": "Peça a conta",
+   "d": "Solicite o cálculo por escrito antes de formalizar o cancelamento."
+  },
+  {
+   "t": "Alternativa: ceder a cota",
+   "d": "Transferir para outra pessoa evita parte dos custos de sair."
+  }
+ ]
+}

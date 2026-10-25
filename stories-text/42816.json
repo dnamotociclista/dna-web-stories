@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Consórcio de moto: sem juros, mas sem data certa",
+  "d": "O grupo forma um fundo, e todo mês algumas cotas recebem a carta de crédito."
+ },
+ "paginas": [
+  {
+   "t": "Administradora autorizada",
+   "d": "O Banco Central regula as empresas que organizam os grupos."
+  },
+  {
+   "t": "Assembleia mensal",
+   "d": "A contemplação é por sorteio ou por lance."
+  },
+  {
+   "t": "Tem taxa de administração",
+   "d": "Em vez de juros, há outras cobranças, como a taxa administrativa."
+  },
+  {
+   "t": "Prazo incerto",
+   "d": "Ninguém garante em que mês a sua cota será contemplada."
+  }
+ ]
+}

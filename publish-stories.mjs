@@ -8,7 +8,35 @@ const SITE = (process.env.WP_URL || 'https://dnamotociclista.com.br').replace(/\
 const AUTH = 'Basic ' + Buffer.from(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`).toString('base64');
 const MAP = new URL('./stories-map.json', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const map = fs.existsSync(MAP) ? JSON.parse(fs.readFileSync(MAP, 'utf8')) : {};
-const NEWS_CAT = 52; // só categoria Notícias
+const ROT = new URL('./stories-text/', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
+const NEWS_CAT = 52; // (legado) agora todas as categorias
+
+// Normaliza para comparar texto (sem acento, minúsculas, só letras e números)
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+// Valida o roteiro: formato, tamanho e originalidade (nenhuma sequência de 6 palavras igual ao post)
+function checkRot(rot, title, postText) {
+  const erro = m => { throw new Error('roteiro inválido: ' + m); };
+  if (!rot.capa?.t || !rot.capa?.d) erro('falta capa.t e capa.d');
+  if (!Array.isArray(rot.paginas) || rot.paginas.length < 3 || rot.paginas.length > 6) erro('paginas deve ter de 3 a 6 itens');
+  const src = norm(title + ' ' + postText).split(' ');
+  const grams = new Set();
+  for (let i = 0; i + 6 <= src.length; i++) grams.add(src.slice(i, i + 6).join(' '));
+  const textos = [[rot.capa.t, 60], [rot.capa.d, 130], ...rot.paginas.flatMap(p => [[p.t, 52], [p.d, 130]])];
+  const problemas = [];
+  for (const [t, max] of textos) {
+    if (!t || typeof t !== 'string') erro('texto vazio');
+    if (t.length > max) problemas.push(`${t.length} caracteres (máx. ${max}): "${t}"`);
+    const w = norm(t).split(' ');
+    // 6 palavras seguidas iguais ao post = cópia, mas sequências de números/siglas (preço, ficha técnica) não contam:
+    // só vale se o trecho tiver ao menos 4 palavras "de texto" (3+ letras, sem ser número)
+    for (let i = 0; i + 6 <= w.length; i++) {
+      const g = w.slice(i, i + 6);
+      if (grams.has(g.join(' ')) && g.filter(x => /[a-z]{3,}/.test(x)).length >= 4) { problemas.push(`copiado do post: "${t}"`); break; }
+    }
+  }
+  if (norm(rot.capa.t) === norm(title)) problemas.push('capa.t igual ao título do post');
+  if (problemas.length) erro(problemas.join(' || '));
+}
 let STATUS = process.env.STORY_STATUS || 'draft';
 
 const dec = s => s.replace(/<[^>]+>/g, '').replace(/&#8217;|&rsquo;/g, '’').replace(/&#8211;/g, '–')
@@ -34,21 +62,33 @@ const shade = () => ({ id: uid(), type: 'shape', x: 0, y: 260, width: W, height:
 async function build(id) {
   const post = await (await fetch(`${SITE}/wp-json/wp/v2/posts/${id}?_embed=wp:featuredmedia`)).json();
   if (!post.id) throw new Error(`post ${id} não encontrado`);
-  if (!post.categories?.includes(NEWS_CAT)) throw new Error(`post ${id} não é da categoria Notícias, ignorado`);
   const title = dec(post.title.rendered);
   const cover = post._embedded?.['wp:featuredmedia']?.[0]?.source_url;
   const imgs = [...post.content.rendered.matchAll(/<img[^>]+src="([^"]+)"/g)].map(m => m[1]);
   const pool = [cover, ...imgs].filter(Boolean);
-  if (!pool.length) throw new Error(`post ${id} sem imagem`);
-  const sections = post.content.rendered.split(/<h2[^>]*>/i).slice(1).map(p => {
+  if (!pool.length) pool.push(SITE + '/wp-content/uploads/2026/09/dna-logo.png');
+  let sections = post.content.rendered.split(/<h2[^>]*>/i).slice(1).map(p => {
     const [h, ...rest] = p.split(/<\/h2>/i);
     return { h: dec(h), p: dec((rest.join('').match(/<p[^>]*>([\s\S]*?)<\/p>/i) || [])[1] || '') };
-  }).filter(s => s.h && s.p && !/^(faq|perguntas|conclus)/i.test(s.h) && !/compr|preço|preco|oferta|desconto|cupom|shopee|frete|onde (achar|encontrar)/i.test(s.h + " " + s.p)).slice(0, 6);
-  const desc = short(dec(post.excerpt.rendered) || sections[0]?.p || title, 150);
+  }).filter(s => s.h && s.p && !/^(faq|perguntas|conclus)/i.test(s.h) ).slice(0, 6);
+  if (sections.length < 3) { // sem H2 suficientes: usa parágrafos do texto
+    const paras = [...post.content.rendered.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)].map(m => dec(m[1])).filter(t => t.length > 40);
+    for (const t of paras) { if (sections.length >= 4) break; if (!sections.some(x => x.p === t)) sections.push({ h: short(t, 52), p: t }); }
+  }
+  // Texto da story: SEMPRE próprio (roteiro em stories-text/<postId>.json), nunca copiado do post.
+  // Formato: { "capa": {"t","d"}, "paginas": [{"t","d"} x3 a 6] }. Sem roteiro, a story não é criada.
+  const rotFile = ROT + id + '.json';
+  const rot = fs.existsSync(rotFile) ? JSON.parse(fs.readFileSync(rotFile, 'utf8')) : null;
+  if (!rot && !process.env.STORY_ALLOW_COPY) throw new Error(`sem roteiro: escreva stories-text/${id}.json com texto próprio (diferente do post)`);
+  if (rot) checkRot(rot, title, dec(post.content.rendered));
+  const storyTitle = rot ? rot.capa.t : title;
+  const desc = rot ? rot.capa.d : short(dec(post.excerpt.rendered) || sections[0]?.p || title, 150);
 
-  const pages = [{ t: short(title, 90), d: short(desc, 110), cover: true }, ...sections.map(s => ({ t: short(s.h, 52), d: short(s.p, 130) })),
-    { t: 'Leia a notícia completa', d: 'Todos os detalhes no DNA Motociclista.', last: true }];
-  if (pages.length < 4) throw new Error(`post ${id} gera só ${pages.length} páginas`);
+  const pages = rot
+    ? [{ t: rot.capa.t, d: rot.capa.d, cover: true }, ...rot.paginas.map(p => ({ t: p.t, d: p.d })),
+      { t: 'Leia a notícia completa', d: 'Todos os detalhes no DNA Motociclista.', last: true }]
+    : [{ t: short(title, 90), d: short(desc, 110), cover: true }, ...sections.map(s => ({ t: short(s.h, 52), d: short(s.p, 130) })),
+      { t: 'Leia a notícia completa', d: 'Todos os detalhes no DNA Motociclista.', last: true }];
 
   const icon = (await (await fetch(`${SITE}/wp-json/`)).json()).site_icon_url;
   const LOGO = SITE + '/wp-content/uploads/2026/09/dna-logo.png';
@@ -87,7 +127,7 @@ async function build(id) {
     }
     return `<amp-story-page id="p${i}">${body}${p.last ? `<amp-story-page-outlink layout="nodisplay" cta-text="Ler notícia"><a href="${post.link}">Ler notícia</a></amp-story-page-outlink>` : ''}</amp-story-page>`;
   }).join('');
-  const content = `<amp-story standalone title="${esc(short(title, 80))}" publisher="DNA Motociclista" publisher-logo-src="${icon}" poster-portrait-src="${cover || pool[0]}">${markup}</amp-story>`;
+  const content = `<amp-story standalone title="${esc(short(storyTitle, 80))}" publisher="DNA Motociclista" publisher-logo-src="${icon}" poster-portrait-src="${cover || pool[0]}">${markup}</amp-story>`;
 
   const rect = (x, y, w, h, c) => ({ id: uid(), type: 'shape', x, y, width: w, height: h, rotationAngle: 0, mask: { type: 'rectangle' }, flip: { vertical: false, horizontal: false }, backgroundColor: { color: { r: c[0], g: c[1], b: c[2], a: c[3] ?? 1 } } });
   const grad = (y, h) => ({ id: uid(), type: 'shape', x: 0, y, width: W, height: h, rotationAngle: 0, mask: { type: 'rectangle' }, flip: { vertical: false, horizontal: false }, backgroundColor: { type: 'linear', rotation: 0, stops: [{ color: { r: 0, g: 0, b: 0, a: 0.1 }, position: 0 }, { color: { r: 0, g: 0, b: 0, a: 0.55 }, position: 0.3 }, { color: { r: 0, g: 0, b: 0, a: 0.88 }, position: 0.5 }, { color: { r: 0, g: 0, b: 0, a: 0.97 }, position: 0.7 }, { color: { r: 0, g: 0, b: 0, a: 0.97 }, position: 1 }] } });
@@ -115,28 +155,36 @@ async function build(id) {
     }
     return { id: uid(), type: 'page', backgroundColor: { color: { r: 255, g: 255, b: 255 } }, elements: els };
   }), autoAdvance: true, defaultPageDuration: 7, currentStoryStyles: { colors: [] } };
-  return { post, title, body: { title, status: STATUS, content, story_data, excerpt: desc, featured_media: post.featured_media } };
+  return { post, title: storyTitle, body: { title: storyTitle, ...(map[id] ? {} : { slug: 'story-' + id }), status: STATUS, content, story_data, excerpt: desc, featured_media: post.featured_media } };
 }
 
 let ids = process.argv.slice(2).filter(a => /^\d+$/.test(a));
 if (process.argv.includes('--all')) {
   const lim = +(process.argv[process.argv.indexOf('--limit') + 1]) || 1000;
   for (let pg = 1; ids.length < lim; pg++) {
-    const r = await fetch(`${SITE}/wp-json/wp/v2/posts?categories=${NEWS_CAT}&per_page=100&page=${pg}&_fields=id`);
+    const r = await fetch(`${SITE}/wp-json/wp/v2/posts?per_page=100&page=${pg}&_fields=id`);
     if (!r.ok) break;
     ids.push(...(await r.json()).map(x => x.id));
   }
   ids = ids.slice(0, lim);
 }
-// --new: notícias dos últimos 3 dias que ainda não têm story; publica (no máx. --limit, padrão 3, por execução)
+// --new: notícias dos últimos 30 dias que ainda não têm story; publica (sem limite por padrão)
 if (process.argv.includes('--new')) {
-  const lim = +(process.argv[process.argv.indexOf('--limit') + 1]) || 3;
-  const since = new Date(Date.now() - 3 * 864e5).toISOString().slice(0, 19);
-  const posts = await (await fetch(`${SITE}/wp-json/wp/v2/posts?categories=${NEWS_CAT}&after=${since}&per_page=50&orderby=date&order=asc&_fields=id,title`)).json();
-  const have = new Set((await (await fetch(`${SITE}/wp-json/web-stories/v1/web-story?per_page=100&_fields=title`)).json()).map(x => dec(x.title.rendered)));
-  ids = posts.filter(p => !map[p.id] && !have.has(dec(p.title.rendered))).map(p => p.id).slice(0, lim);
+  const lim = +(process.argv[process.argv.indexOf('--limit') + 1]) || 1000;
+  const since = new Date(Date.now() - 30 * 864e5).toISOString().slice(0, 19);
+  const posts = await (await fetch(`${SITE}/wp-json/wp/v2/posts?after=${since}&per_page=50&orderby=date&order=asc&_fields=id,title`)).json();
+  const exist = await (await fetch(`${SITE}/wp-json/web-stories/v1/web-story?per_page=100&_fields=title,slug`)).json();
+  const have = new Set(exist.flatMap(x => [dec(x.title.rendered), x.slug]));
+  ids = posts.filter(p => !map[p.id] && !have.has('story-' + p.id) && !have.has(dec(p.title.rendered))).map(p => p.id);
+  // Sem roteiro próprio a story não é criada: o agente precisa escrever stories-text/<id>.json antes
+  const semRot = ids.filter(i => !fs.existsSync(ROT + i + '.json'));
+  if (!process.env.STORY_ALLOW_COPY) {
+    for (const i of semRot) { const p = posts.find(x => x.id === i); console.log(`FALTA ROTEIRO: post ${i} "${dec(p.title.rendered)}" -> escreva stories-text/${i}.json`); }
+    ids = ids.filter(i => !semRot.includes(i));
+  }
+  ids = ids.slice(0, lim);
   STATUS = process.env.STORY_STATUS || 'publish';
-  console.log(`--new: ${posts.length} notícias recentes, ${ids.length} sem story`);
+  console.log(`--new: ${posts.length} notícias recentes, ${ids.length} com roteiro pronto, ${semRot.length} sem roteiro`);
 }
 for (const id of ids) {
   if (map[id] && !process.env.REDO) { console.log(`post ${id}: já tem story ${map[id]}, pulando`); continue; }

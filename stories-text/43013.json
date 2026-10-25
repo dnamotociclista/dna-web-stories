@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Mini rastreador: onde esconder e quais os limites",
+  "d": "Aparelho pequeno e fácil de instalar, mas com restrições de bateria, sinal e recursos."
+ },
+ "paginas": [
+  {
+   "t": "Instalação simples",
+   "d": "Não precisa de ligação elétrica, ao contrário do rastreador fixo."
+  },
+  {
+   "t": "Bateria é o ponto fraco",
+   "d": "Exige recarga ou troca, e a autonomia varia bastante."
+  },
+  {
+   "t": "Sem bloqueio de motor",
+   "d": "Em geral, o mini não corta o funcionamento da moto como alguns fixos."
+  },
+  {
+   "t": "Seguradora pode não aceitar",
+   "d": "O desconto no seguro é raro, então confirme antes de comprar."
+  }
+ ]
+}

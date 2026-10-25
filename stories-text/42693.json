@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Proteção veicular e seguro não são a mesma coisa",
+  "d": "A diferença muda seus direitos, o preço e o risco que você assume."
+ },
+ "paginas": [
+  {
+   "t": "Seguro: SUSEP",
+   "d": "A seguradora é autorizada e fiscalizada, e você recebe uma apólice com prêmio fixo."
+  },
+  {
+   "t": "Proteção: associação",
+   "d": "Os associados dividem os prejuízos, e a mensalidade pode ter rateio."
+  },
+  {
+   "t": "Fiscalização diferente",
+   "d": "O setor das associações não é supervisionado como o das seguradoras."
+  },
+  {
+   "t": "Leia antes de aderir",
+   "d": "Compare coberturas, limites e o que acontece se o custo coletivo subir."
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Pneu de moto: calibragem e hora de trocar",
+  "d": "É o único ponto de contato com o chão, e decide aderência e frenagem."
+ },
+ "paginas": [
+  {
+   "t": "Calibre com pneu frio",
+   "d": "Use um calibrador confiável e confira a pressão toda semana."
+  },
+  {
+   "t": "Dianteiro e traseiro diferem",
+   "d": "Com garupa ou carga, a pressão pode mudar, conforme o manual."
+  },
+  {
+   "t": "Veja o adesivo",
+   "d": "A pressão ideal costuma estar no manual ou numa etiqueta na moto."
+  },
+  {
+   "t": "Desgaste manda trocar",
+   "d": "Banda lisa ou danificada compromete a segurança, mesmo com pressão certa."
+  }
+ ]
+}

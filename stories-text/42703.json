@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Documentos da moto: o que precisa estar em dia",
+  "d": "CRLV, licenciamento, multas e transferência mudam de valor e procedimento por estado."
+ },
+ "paginas": [
+  {
+   "t": "CRLV",
+   "d": "É o documento de porte obrigatório, hoje disponível em versão digital em muitos estados."
+  },
+  {
+   "t": "Licenciamento anual",
+   "d": "Deve ser pago junto com IPVA, multas e taxas pendentes."
+  },
+  {
+   "t": "Comprou usada?",
+   "d": "A transferência de propriedade usa o CRV, e a ATPV-e faz parte do processo."
+  },
+  {
+   "t": "Confira no Detran",
+   "d": "Valores e prazos variam, então o site do seu estado é a fonte."
+  }
+ ]
+}

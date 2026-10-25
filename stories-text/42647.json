@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Seguro de moto: como funciona e o que cobre",
+  "d": "Ninguém é obrigado a contratar, porém a apólice cobre roubo, batida e prejuízo causado a outros."
+ },
+ "paginas": [
+  {
+   "t": "Contrato com a seguradora",
+   "d": "Você paga o prêmio e ela indeniza prejuízos previstos na apólice."
+  },
+  {
+   "t": "Dados que entram na conta",
+   "d": "Modelo, ano, valor na FIPE e local onde a moto dorme."
+  },
+  {
+   "t": "Itens que costumam não entrar",
+   "d": "Cada apólice lista exclusões, e vale ler antes de assinar."
+  },
+  {
+   "t": "Como acionar",
+   "d": "Em caso de sinistro, avise a seguradora e siga as orientações do contrato."
+  }
+ ]
+}

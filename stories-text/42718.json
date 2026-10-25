@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Equipamento de moto: obrigatório e recomendado",
+  "d": "O capacete é o único item obrigatório de vestuário, mas outros reduzem muito o risco."
+ },
+ "paginas": [
+  {
+   "t": "Capacete com Inmetro",
+   "d": "Vale para condutor e passageiro, com viseira regularizada."
+  },
+  {
+   "t": "Moto em ordem",
+   "d": "Retrovisores, buzina, luzes e documentação precisam estar em dia."
+  },
+  {
+   "t": "Jaqueta, luvas, calça e botas",
+   "d": "Não são obrigatórias, mas protegem em quedas."
+  },
+  {
+   "t": "Regras podem variar",
+   "d": "O Contran e os estados podem trazer exigências extras, como viseira ou óculos."
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Óleo a cada mil km? Entregador gasta à toa",
+  "d": "Mesmo rodando muito, o motoboy não precisa trocar tão cedo. O ajuste certo parte do que diz o manual."
+ },
+ "paginas": [
+  {
+   "t": "Motores e óleos evoluíram",
+   "d": "Boa parte das motos pede troca entre 5 e 6 mil km, e algumas grandes chegam a mais de 10 mil."
+  },
+  {
+   "t": "Uso severo existe",
+   "d": "Trânsito parado, calor, poeira e muita aceleração desgastam o lubrificante mais depressa."
+  },
+  {
+   "t": "A conta do entregador",
+   "d": "Pegue o prazo do manual e divida por dois. Dá de 2.500 a 3.000 km, ou meio ano."
+  },
+  {
+   "t": "Trocar em mil km sai caro",
+   "d": "Gasta mais com óleo e filtro sem dar mais proteção ao motor."
+  }
+ ]
+}

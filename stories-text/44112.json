@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Controle de cruzeiro em moto: como funciona",
+  "d": "Mantém a velocidade escolhida sem o piloto girar o punho, mas poucas motos nacionais trazem o item."
+ },
+ "paginas": [
+  {
+   "t": "Precisa de acelerador eletrônico",
+   "d": "A central decide quanto abrir a borboleta quando o piloto aciona o comando."
+  },
+  {
+   "t": "Desliga ao frear",
+   "d": "Na maioria dos sistemas, usar o freio ou a embreagem cancela o recurso, e dá para retomar com um toque."
+  },
+  {
+   "t": "Versão adaptativa",
+   "d": "O ACC usa radar para ajustar a velocidade conforme o veículo à frente."
+  },
+  {
+   "t": "Menos cansaço em viagem",
+   "d": "Aparece em modelos médios e grandes, justamente os usados em estrada."
+  }
+ ]
+}

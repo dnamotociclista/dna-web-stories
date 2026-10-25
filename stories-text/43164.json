@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Checklist de 30 segundos antes de pilotar",
+  "d": "Pequenas conferências frequentes custam menos que um conserto e deixam a moto mais segura."
+ },
+ "paginas": [
+  {
+   "t": "Pneus e freios",
+   "d": "Olhe a pressão, o estado da banda e se as duas alavancas respondem bem."
+  },
+  {
+   "t": "Luzes e buzina",
+   "d": "Farol, lanterna, setas e buzina precisam funcionar antes de sair."
+  },
+  {
+   "t": "Corrente em dia",
+   "d": "Confira a folga e se há lubrificação suficiente."
+  },
+  {
+   "t": "Revisão no prazo",
+   "d": "Os intervalos mudam por modelo, então o manual é a referência."
+  }
+ ]
+}

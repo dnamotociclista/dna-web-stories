@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Bateria da moto fraca: como perceber",
+  "d": "Partida lenta e luzes fracas costumam avisar antes que ela pare de vez."
+ },
+ "paginas": [
+  {
+   "t": "Partida arrastada",
+   "d": "O motor de arranque gira devagar ou engasga ao ligar."
+  },
+  {
+   "t": "Testar com multímetro",
+   "d": "Uma bateria de 12 V descansada deve marcar entre 12,5 e 12,8 V."
+  },
+  {
+   "t": "Nem sempre é a bateria",
+   "d": "Estator e regulador com defeito também deixam a carga sempre baixa."
+  },
+  {
+   "t": "Cuidado com os polos",
+   "d": "Na troca, respeite a ordem de desligar e ligar e descarte a antiga no lugar certo."
+  }
+ ]
+}

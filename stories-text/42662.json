@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Seguro para moto financiada, esportiva e nova",
+  "d": "O tipo da moto muda a exigência, o preço e as regras da indenização."
+ },
+ "paginas": [
+  {
+   "t": "Financiada: banco exige",
+   "d": "Durante o contrato ele pode pedir seguro, mas você pode comparar outras opções."
+  },
+  {
+   "t": "Perda total e dívida",
+   "d": "A indenização pode ficar abaixo do saldo devedor. Pergunte por cobertura que quite o débito."
+  },
+  {
+   "t": "Esportiva custa mais",
+   "d": "Motos de maior desempenho tendem a ter apólices mais caras."
+  },
+  {
+   "t": "Zero km tem regras próprias",
+   "d": "Valor e depreciação seguem critérios específicos da apólice."
+  }
+ ]
+}

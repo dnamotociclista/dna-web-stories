@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Qual bota combina com o seu jeito de pilotar",
+  "d": "Cidade, estrada, trilha ou pista pedem tipos diferentes de proteção."
+ },
+ "paginas": [
+  {
+   "t": "Urbanas",
+   "d": "Parecem calçados comuns, mas trazem reforço no tornozelo."
+  },
+  {
+   "t": "Touring",
+   "d": "Mais altas, confortáveis e geralmente impermeáveis para viagens longas."
+  },
+  {
+   "t": "Esportivas",
+   "d": "Oferecem a máxima proteção, com estrutura mais rígida."
+  },
+  {
+   "t": "Off-road",
+   "d": "Cano longo e proteção reforçada para trilha e estrada de terra."
+  }
+ ]
+}

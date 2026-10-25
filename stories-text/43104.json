@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Como lavar o capacete sem estragar",
+  "d": "Água morna, sabão neutro e esponja macia resolvem. Solvente e álcool puro, não."
+ },
+ "paginas": [
+  {
+   "t": "Desmonte o que der",
+   "d": "Tire a viseira e a forração removível, conforme o manual do modelo."
+  },
+  {
+   "t": "Forração à mão",
+   "d": "Lave com sabão neutro, enxágue bem e seque à sombra."
+  },
+  {
+   "t": "Casca com pano úmido",
+   "d": "Limpe por fora sem produtos abrasivos que arranhem a pintura."
+  },
+  {
+   "t": "Nada de secador quente",
+   "d": "O calor danifica o material que absorve impacto."
+  }
+ ]
+}

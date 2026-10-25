@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Capacete tem validade? Veja quando trocar",
+  "d": "A espuma interna envelhece, e a troca costuma ser sugerida por volta de cinco anos."
+ },
+ "paginas": [
+  {
+   "t": "Por que ele vence",
+   "d": "Com tempo, calor e umidade, a espuma que protege a cabeça perde eficiência."
+  },
+  {
+   "t": "Não há prazo em lei",
+   "d": "Cada fabricante recomenda um período, geralmente de 3 a 5 anos de uso."
+  },
+  {
+   "t": "Caiu? Troque",
+   "d": "Depois de um impacto o capacete deve ser substituído, mesmo sem marcas."
+  },
+  {
+   "t": "Confira a etiqueta",
+   "d": "A data de fabricação ajuda a controlar a idade do equipamento."
+  }
+ ]
+}

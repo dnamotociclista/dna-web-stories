@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "CNH categoria A: o caminho para pilotar legalmente",
+  "d": "Regras mudam com o tempo, por isso confira sempre as exigências do Detran do seu estado."
+ },
+ "paginas": [
+  {
+   "t": "Idade mínima: 18 anos",
+   "d": "Exige-se leitura e escrita, CPF e RG, além de nenhum impedimento legal para dirigir."
+  },
+  {
+   "t": "Primeiro, o cadastro",
+   "d": "Ele costuma ser feito pelo site ou aplicativo do Detran estadual."
+  },
+  {
+   "t": "Exames de saúde",
+   "d": "Avaliação médica e psicológica com profissionais credenciados."
+  },
+  {
+   "t": "Teoria e prática",
+   "d": "Curso e prova teórica vêm antes das aulas e do exame prático."
+  }
+ ]
+}

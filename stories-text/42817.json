@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Financiamento de moto: onde está o custo de verdade",
+  "d": "A parcela engana. Quem compara o CET sabe quanto vai pagar no total."
+ },
+ "paginas": [
+  {
+   "t": "O banco paga, você devolve",
+   "d": "A moto fica em garantia do banco até a última parcela."
+  },
+  {
+   "t": "CET é o número que importa",
+   "d": "Ele reúne juros, tarifas e seguros embutidos na proposta."
+  },
+  {
+   "t": "Aprovação depende do crédito",
+   "d": "Aprovado o crédito, o contrato fixa o valor, o prazo, a taxa e a prestação."
+  },
+  {
+   "t": "Quitando antes",
+   "d": "Ao liquidar o contrato, a alienação é baixada e a moto fica livre."
+  }
+ ]
+}

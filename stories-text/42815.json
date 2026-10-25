@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Consórcio ou financiamento: o que compensa",
+  "d": "Um entrega a moto agora e o outro costuma sair mais barato no total, mas exige espera."
+ },
+ "paginas": [
+  {
+   "t": "Financiamento é imediato",
+   "d": "Depois da aprovação, a moto vem para a sua garagem, com juros."
+  },
+  {
+   "t": "Consórcio exige paciência",
+   "d": "A moto só chega quando a cota for contemplada."
+  },
+  {
+   "t": "Custo costuma ser menor no consórcio",
+   "d": "Sem juros, o total tende a ficar abaixo do financiamento."
+  },
+  {
+   "t": "Entrada e lance",
+   "d": "No financiamento é comum ter entrada. No consórcio, o lance acelera a contemplação."
+  }
+ ]
+}

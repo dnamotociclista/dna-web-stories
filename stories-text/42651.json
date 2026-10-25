@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Seguro para entregador: declare o uso",
+  "d": "Se você trabalha de moto e não avisa a seguradora, o sinistro pode ser negado."
+ },
+ "paginas": [
+  {
+   "t": "Uso profissional pesa",
+   "d": "Quem entrega roda muito, estaciona em vários pontos e se expõe a mais perigo."
+  },
+  {
+   "t": "Apólice comum pode excluir",
+   "d": "Várias deixam o trabalho por app de fora, mas há seguradoras com plano para esse público."
+  },
+  {
+   "t": "Preço costuma subir",
+   "d": "Ou a cobertura vem limitada, conforme o tipo de uso declarado."
+  },
+  {
+   "t": "Leia as condições",
+   "d": "Confira o que está incluído antes de contratar."
+  }
+ ]
+}

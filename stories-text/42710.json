@@ -1,0 +1,24 @@
+{
+ "capa": {
+  "t": "Corrente da moto: limpar, lubrificar e ajustar",
+  "d": "Cuidar dela prolonga a vida do kit de transmissão inteiro."
+ },
+ "paginas": [
+  {
+   "t": "Lubrifique com frequência",
+   "d": "Repita a cada poucas centenas de km e sempre que a moto pegar chuva ou for lavada."
+  },
+  {
+   "t": "Limpe quando sujar",
+   "d": "Barro e graxa endurecida pedem limpeza com a moto bem apoiada."
+  },
+  {
+   "t": "Folga certa",
+   "d": "A medida em milímetros vem no manual e é tomada no meio da corrente."
+  },
+  {
+   "t": "Kit em conjunto",
+   "d": "Corrente, coroa e pinhão se gastam juntos e costumam ser trocados juntos."
+  }
+ ]
+}
